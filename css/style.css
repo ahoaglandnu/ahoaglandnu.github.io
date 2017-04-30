@@ -54,3 +54,8 @@
 .video-container video.fillWidth {
     width: 100%;
 }
+
+#about {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
