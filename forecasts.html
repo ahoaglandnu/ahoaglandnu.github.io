@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Election 2020</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://ahoaglandnu.github.io/election2020/">Election 2020</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://nbviewer.jupyter.org/github/ahoaglandnu/election2020/blob/master/Four%20Decades%20of%20Probabilities.ipynb">Jupyter Notebook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/ahoaglandnu?tab=repositories">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container h-100">
+      <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-12">
+          <h2 class="blog-post-title">Probabilities with Perfect Information</h2>
+          <h4 class="blog-post-subtitle">Presidential elections over the past 40 years</h4>
+          <p class="blog-post-meta">August 30, 2020</p>
+        </div>
+      </div>
+        <p>You can trust state polling, but should ignore the election forecast probabilities.</p>
+        <hr>
+
+        <p><strong>TL;DR</strong></p> 
+        <p>Only landslide elections over the past 40 years had a probability over 90% for the favored candidate. Close elections between two candidates, just like a coin toss, are within a few points of a 50% probability for both candidates. </p>
+        <p>The most popular election forecaster overestimates the probability for the victor by 20%.</p>
+        <h4>What I will cover in this post</h4>
+        <ol>
+          <li>Using actual state level results instead of polling data</li>
+          <li>Every election results compared to the probability starting from 1980</li>
+          <li>Examining the three missed states of 2016 election forecasts</li>
+        </ol>
+        <br>
+        <h2>Elections are the only polls that matter</h2>
+        <p>The baseline for forecasters to create state probabilities is polling data from a variety of sources. This is a two-step process. The first step is to come up with the percentage of votes each candidate will receive on election day. The second is to then determine the probability a candidate will have the largest proportion of votes. We can consider the final results of a state as <strong>perfect data</strong>. The results are pefect because we know exactly how every voter who chose to vote cast their ballots. There is no margin of error to consider.</p>
+        <p>Polling surveys include a margin of error because they are <strong>sampling the population</strong> of likely voters. In other words, they are creating estimates of the final results. Since it is not possible to determine who exactly will vote, pollsters use the term <strong>likely voters</strong>, the subset of registered voters that are most likely to cast ballots for election day.</p>
+        <p>Even though we have perfect state data, we will add in a margin of error for each state so we can create probabilities in the same manner as election forecasters. The simulations conducted use the framework written by Drew Lizner. You can read more about it <a href="https://twitter.com/DrewLinzer/status/1293216071323811845">here</a>. For his simple model, Linzer assumed a 5% degree of uncertainty in state polls and 3% in national polls. The 10,000 simulations I will run for each election will do the same. This means that a state poll can be plus or minus 5 points. In addition, the national polls will represent a national trend shifting all state polls in each simulation plus or minus 3 points. </p>
+        <br>
+
+        <h2>Every Presidential Election since 1980</h2>
+
+        <p>Simulations were run in Jupyter Notebook. If you would like to see exactly how the simulations were ran in python, you can find a copy of the notebook at the link above.</p>
+
+        <h4>1980: Reagan vs. Carter</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/1980_mov.png" class="rounded mx-auto d-block">
+        <p>The 1980 election is a classic example of a landslide victory. The simulation generated probabilities that reflect the same.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/1980sim.png" class="rounded mx-auto d-block">
+        <p> This brings us to our first finding. <strong>Only landslides should have above a 90% probability</strong>. Excessively high probabilities was one of the most misleading elements of election forecasts in 2016.</p>
+
+        <h4>1984: Reagan vs. Mondale</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/1984_mov.png" class="rounded mx-auto d-block">
+        <p>The 1984 election is the largest landslide victory over the past 40 years. As expected, he simulation generated the highest probability for a victory.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/1984sim.png" class="rounded mx-auto d-block">
+        <p> Even though the simulation injects uncertainty at the state and national level, we have our first and only probability with near certainty of the outcome.</p>
+
+        <h4>1988: Bush vs. Dukakis</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/1988_mov.png" class="rounded mx-auto d-block">
+        <p>The 1988 election was the last election we will see with a probability of victory for a candidate above 90%.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/1988sim.png" class="rounded mx-auto d-block">
+        <p> This election sets the bar for the minimum we should consider when a candidate is claimed to have a 90% probability of winning. George H.W. Bush averaged 388 electoral college votes, 118 above the necessary 270 votes to win.</p>
+
+        <h4>1992: Clinton vs. Bush</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/1992_mov.png" class="rounded mx-auto d-block">
+        <p>Qualitative assessments from political scientists will discuss the third party effect and cite the presidential campaign of H. Ross Perot. The simulation did not output results that would support or refute such analysis.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/1992sim.png" class="rounded mx-auto d-block">
+        <p>The 1992 election gives us our first change of power in the White House, but still yielded a high probability for the victor at 82.4%.</p>
+
+        <h4>1996: Clinton vs. Dole</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/1996_mov.png" class="rounded mx-auto d-block">
+        <p>The 1996 election will be the second election Clinton would win and also the lowest turnout for an election since 1924.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/1996sim.png" class="rounded mx-auto d-block">
+        <p>Although the electoral college votes increased by 9, we see Clinton having a probability for victory of 88.5%. The probability for a Clinton win is very close to what George H.W. Bush averaged in the 1988 simulations that gave him a 92% chance of victory.</p>
+
+        <h4>2000: Bush vs. Gore</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/2000_mov.png" class="rounded mx-auto d-block">
+        <p>Famous for the <a href="https://en.wikipedia.org/wiki/2000_United_States_presidential_election_recount_in_Florida">"hanging chad"</a> from the Florida recount, the 2000 presidential election simulation correctly provided probabilities reflecting a close election. This simulation provided us with out second finding; <strong>close elections should have probabilities close to 50/50 odds</strong>.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/2000sim.png" class="rounded mx-auto d-block">
+        <p>Three points to highlight from this election. George W. Bush averaged 278 in the simulations which is above the 271 final electoral college result indicating that his most frequent simulated paths to victory did not come down to Florida. In fact, his most common result was 264, which is losing the election. Being on both sides of 270 electoral college votes in terms of average and most common outcome validates his simulated probability of victory at 54.3%</p>
+
+        <h4>2004: Bush vs. Kerry</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/2004_mov.png" class="rounded mx-auto d-block">
+        <p>The second election of the modern "Red State, Blue State" era gave us another election decided by a single state; Ohio. The difference being this election did not require a decision by the Supreme Court and the probabilities had a favorite.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/2004sim.png" class="rounded mx-auto d-block">
+        <p>We see the electoral college range of simulated results shift beyond the margin of victory for Bush giving him a 67.2% probability for victory. Although it was a one state determination yet again, he had a number of state combination paths to win in the simulations.</p>
+
+        <h4>2008: Obama vs. McCain</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/2008_mov.png" class="rounded mx-auto d-block">
+        <p>The historic election gave us one of the highest probabilities for victory since the 1996 Clinton win.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/2008sim.png" class="rounded mx-auto d-block">
+        <p>Simulations generated a 86.1% probability of victory with the final result being beyond the most common simulation result and simulation average. This election also brought forecasters into the spotlight of national media attention.</p>
+
+        <h4>2012: Obama vs. Romney</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/2012_mov.png" class="rounded mx-auto d-block">
+        <p>The year prior, the movie Moneyball was released and won a number of awards and nominations. The 2012 election was the first where election forecasters made almost as many headlines as the candidates. Nate Silver became the subject of a number of memes post-election. Even though he correctly forecasted 50 out of 50 states, his probability for victory was higher than our simulation.</p>
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/silver2012.jpg" class="rounded mx-auto d-block">
+        <p>Silver used polling weighted state polling data and simulations to come up with his probability, but it is far away from the probability generated with perfect data.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/2012sim.png" class="rounded mx-auto d-block">
+        <p>With perfect information and intentionally injecting uncertainty into the simulation, it did not produce a probability of victory as high as Silver. The 90.9% probability is nearly 20% <strong>higher</strong> than the simulation results of 71.2%.</p>
+
+        <h4>2016: Trump vs. Clinton</h4>
+
+        <img src="https://www.270towin.com/historical-presidential-elections/timeline/margin-of-victory/maps/2016_mov.png" class="rounded mx-auto d-block">
+        <p>Election forecasts and polling have been a topic of discussion in presidential elections because of this race as it shattered confidence in polling and forecasts for many.</p>
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/election/master/538_prob.png" class="rounded mx-auto d-block">
+        <p>Post-election, some credited Silver with giving Trump the highest probability for victory as other forecasts had a probability for Clinton at 90% or higher.</p>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/2012sim.png" class="rounded mx-auto d-block">
+        <p><strong>For a second time, the probability published by Silver is 20% off</strong> of what was generated from perfect information with uncertainty injected into the simulation. Just like Bush in 2000, we see Trump having his most common simulated outcome and simulation average straddling the line of victory. What is interesting to note, is that unlike Bush in 2000, his most common simulation outcome is a loss while his simulation average is a win. Even with perfect information on the outcome, Trump still generates a probability of victory at 47.5%. This also shows that Clinton was favorited to win, but by a much smaller margin than published by forecasters, including less aggressive ones like Silver.</p>
+        <br>
+        <h2>The Three Missed States</h2>
+        <p>As we have seen,<strong> injecting uncertainty into a simulation with perfect data on the outcome gives us more of a realistic probability</strong> on the actual outcome. We have also seen that the leading forecaster has been consistently off in probabilities by nearly 20% when compared to the probabilities generated by perfect data. Before drawing any conclusions, we will examine the three states missed in 2016.</p>
+
+        <h4>Pennsylvania</h4>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/pa2016.png" class="rounded mx-auto d-block">
+        <p>Silver gave PA to Clinton over 3 out of 4 times carrying 20 electoral college votes.</p>
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/pa16.png" class="rounded mx-auto d-block">
+        <p>Pollsters and qualitative experts labeled PA as a toss up state. The simulation generated probabilities inline with such analysis, slightly above 50/50.</p>
+
+        <h4>Michigan</h4>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/mi2016.png" class="rounded mx-auto d-block">
+        <p>Silver gave MI to Clinton over 8 out of 10 times carrying 16 electoral college votes.</p>
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/mi16.png" class="rounded mx-auto d-block">
+        <p>Another state pollsters and qualitative experts labeled a toss up state. The simulation generated probabilities were again inline with such analysis, slightly above 50/50.</p>
+
+        <h4>Wisconsin</h4>
+
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/wi2016.png" class="rounded mx-auto d-block">
+        <p>Silver gave WI to Clinton nearly 9 out of 10 times carrying 10 electoral college votes.</p>
+        <img src="https://raw.githubusercontent.com/ahoaglandnu/ahoaglandnu.github.io/master/img/wi16.png" class="rounded mx-auto d-block">
+        <p>While pollsters did not label this a toss up, no polling averages had Clinton with a majority; meaning over half of likely voters. As we have seen above, if it is not a landslide, it should not carry a chance of victory close to 90%.</p>
+
+        <h4>Summary</h4>
+
+        <p>With probabilities for these states so high, a simulation would award 46 electoral college votes to Clinton in about 70% of the time resulting in a simulation victory. This is aligned to Silver's probabilty of a Clinton victory at around the same.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>We have boundaries for probabilities based on the presidential elections over the past 40 years.</p>
+        <ol>
+          <li>If the probability for victory is <strong>above 90%</strong>, then the electoral college estimate should be above <strong>400</strong>.</li>
+          <li>If the probability for victory is <strong>above 80%</strong>, then the electoral college estimate should be above <strong>330</strong>.</li>
+          <li>If the probability for victory is <strong>above 70%</strong>, then the electoral college estimate should be above <strong>300</strong>.</li>
+          <li>Any states that are <strong>toss ups</strong> or do not have a candidate with a clear majority lead should be considered <strong>50/50</strong> states.</li>
+        </ol>
+        <p>Any forecaster not transparent with how they derive their probabilities has to be met with some healthy skepticism that they were lucky before or putting their thumb on the scale. If forecasts have probabilities that do not align with historically generated probabilities from perfect data with uncertainty injected into the simulations, they are inaccurate at best and clickbait at worst.</p>
+        <p>It is best to focus on the polling coming out of battleground states, rather than complex models with obfuscated methods of generating probabilities for potential winners.</p>
+
+
+        <p>You can find my election updates at the link below:</p>
+        <a href="https://ahoaglandnu.github.io/election2020/">Understanding the 2020 Presidential Election Polls</a>
+      </div>
+      <br>
+      <hr>
+      <div class="container h-100">
+        <br>
+        <h4>References:</h4>
+        <p>270toWin</p>
+        <p>FiveThirtyEight</p>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
